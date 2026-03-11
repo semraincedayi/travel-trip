@@ -1,4 +1,5 @@
-﻿
+﻿@using TravelTrip.Models.Class
+@model List<Blog>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_TestLayout.cshtml";
@@ -26,7 +27,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/glass.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Restaurants</p>
+                                <p>Restoranlar</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -35,7 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/flight.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Flights</p>
+                                <p>Uçuşlar</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -44,7 +45,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/group.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Things to do</p>
+                                <p>Yapılacak şeyler</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -53,7 +54,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/key.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Vacation Rents</p>
+                                <p>Araba Kiralama</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -61,12 +62,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="header_bottom_right_images">
 
-                        <div class="slider">
+                        <div class="slider" >
                             <ul class="rslides" id="slider1">
-                                <li><img src="~/web/images/img1.jpg" alt=""></li>
-                                <li><img src="~/web/images/img2.jpg" alt=""></li>
-                                <li><img src="~/web/images/img3.jpg" alt=""></li>
-                                <li><img src="~/web/images/img4.jpg" alt=""></li>
+                                @foreach (var x in Model)
+                                {
+                                <li><img src="@x.BlogImage"style="width:650px;height:365px;" alt=""></li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -80,8 +81,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="wrap">
             <div class="wrapper">
                 <div class="con-top">
-                    <h3>Welcome to our Travel Company!</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facil</p>
+                    <h3>Tatil seyahat bloğuma hoşgeldiniz!</h3>
+                    <p>
+                        Sınırları olmayan rotaları ve bitmek bilmeyen keşif tutkumu paylaştığım bu dijital günlüğe hoş geldiniz! Her adımda büyüyen bu seyahat haritasının sadece içeriklerini değil, arka plandaki altyapısını da tamamen kendi ellerimle hazırladım. Visual Studio ortamında MVC mimarisi, SQL ve Entity Framework kullanarak kodladığım bu dinamik web projesinde, hem yollardaki anılarıma hem de yazılım serüvenime tanıklık edebilirsiniz. Keyifli keşifler!
+                    </p>
                 </div>
                 <div class="con-bot">
                     <div class="left">

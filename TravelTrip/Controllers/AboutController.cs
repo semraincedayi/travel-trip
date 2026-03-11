@@ -7,19 +7,14 @@ using TravelTrip.Models.Class;
 
 namespace TravelTrip.Controllers
 {
-    public class DefaultController : Controller
+    public class AboutController : Controller
     {
-        // GET: Default
-        Context context = new Context();
+        // GET: About
+        Context _context=new Context();
         public ActionResult Index()
         {
-            var degerler = context.Blogs.ToList();
+            var degerler=_context.Hakkimizdas.ToList();
             return View(degerler);
-        }
-        public ActionResult About()
-        {
-            
-            return View();
         }
     }
 }
