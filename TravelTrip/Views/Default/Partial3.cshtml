@@ -1,0 +1,20 @@
+﻿@using TravelTrip.Models.Class;
+@model List<Blog>
+<div class="padding1">
+    <h4>En Beğendiğim Yerler</h4>
+    <div style="font-size: 0;">
+        @{int sayac = 0; } @foreach (var x in Model)
+        {
+            sayac++;
+            <div class="@(sayac%2==0? "box-right":"box-left")" style="display: inline-block; vertical-align: top; float: none; margin-bottom: 30px; font-size: 14px;">
+                <div class="bot-img">
+                    <img src="@x.BlogImage" style=" object-fit: cover;" alt="" />
+                </div>
+                <div class="bot-desc">
+                    <p>@x.Aciklama.Substring(0, 100)...</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        }
+     </div>
+ </div>
