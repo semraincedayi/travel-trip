@@ -1,0 +1,16 @@
+﻿@using TravelTrip.Models.Class
+@model List<Blog>
+<div class="padding">
+    <h4>Haftanın En Popülerleri</h4>   
+    <ul class="list list-pad">
+        @{int sayac = 0; }
+        @foreach (var x in Model)
+        {
+            sayac++;
+            <li class="list-bg" style="height: auto !important; min-height: 26px; overflow: hidden; margin-bottom: 8px; display: flex; align-items: flex-start; padding: 5px 0 5px 14px;"><span>@sayac</span><a href="/Blog/BlogDetails/@x.Id">@x.Baslik</a></li>
+
+
+        }
+    </ul>
+    <a href="/Blog" class="link1">Tüm blogları gör</a>
+</div>
