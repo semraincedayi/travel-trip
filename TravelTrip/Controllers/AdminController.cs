@@ -35,6 +35,23 @@ namespace TravelTrip.Controllers
             return RedirectToAction("Index");
 
         }
+        [HttpGet]
+        public ActionResult UpdateBlog(int id)
+        {
+            var blogs = context.Blogs.Find(id);
+            return View("UpdateBlog", blogs);
+        }
+        [HttpPost]
+        public ActionResult UpdateBlog(Blog b)
+        {
+            var blogs = context.Blogs.Find(b.Id);
+            blogs.Baslik = b.Baslik;
+            blogs.Tarih = b.Tarih;
+            blogs.BlogImage = b.BlogImage;
+            blogs.Aciklama = b.Aciklama;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 }
