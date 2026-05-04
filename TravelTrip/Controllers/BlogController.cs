@@ -31,5 +31,19 @@ namespace TravelTrip.Controllers
             return View(by);
 
         }
+        [HttpGet]
+        public PartialViewResult PostComment(int id)
+        {
+            ViewBag.blogId = id;
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult PostComment(Yorumlar y)
+        {
+            _context.Yorumlars.Add(y);
+            _context.SaveChanges();
+            return PartialView();
+        }
+         
     }
 }
