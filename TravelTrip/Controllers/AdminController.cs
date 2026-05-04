@@ -27,7 +27,14 @@ namespace TravelTrip.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult DeleteBlog(int id)
+        {
+            var blog = context.Blogs.Find(id);
+            context.Blogs.Remove(blog);
+            context.SaveChanges();
+            return RedirectToAction("Index");
 
+        }
 
     }
 }
