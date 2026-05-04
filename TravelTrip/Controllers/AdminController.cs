@@ -15,6 +15,19 @@ namespace TravelTrip.Controllers
             var degerler = context.Blogs.ToList();
             return View(degerler);
         }
-        
+        [HttpGet]
+        public ActionResult NewBlog()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NewBlog(Blog p)
+        {
+            context.Blogs.Add(p);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
