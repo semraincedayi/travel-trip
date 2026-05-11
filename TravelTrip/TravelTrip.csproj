@@ -270,6 +270,7 @@
     <Content Include="Views\Admin\UpdateBlog.cshtml" />
     <Content Include="Views\Blog\PostComment.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\CommentsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

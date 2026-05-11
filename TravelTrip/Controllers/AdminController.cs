@@ -52,6 +52,11 @@ namespace TravelTrip.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult CommentsList()
+        {
+            var yorumlar = context.Yorumlars.ToList();
+            return View(yorumlar);  
+        }
 
     }
 }
