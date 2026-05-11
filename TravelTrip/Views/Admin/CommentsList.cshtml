@@ -14,6 +14,7 @@
         <th>Mail</th>
         <th>Yorum</th>
         <th>Blog</th>
+        <th>Yorumu Sil</th>
         <th>Yorumu Güncelle</th>
     </tr>
     @foreach (var x in Model)
@@ -24,6 +25,7 @@
             <td>@x.Mail</td>
             <td>@x.Yorum</td>
             <td>@x.Blog.Baslik</td>
+            <td><a href="/Admin/DeleteComment/@x.ID" class="btn btn-danger">Sil</a>
             <td><a href="/Admin/UpdateComment/@x.ID" class="btn btn-warning">Güncelle</a>
         </tr>
     }
