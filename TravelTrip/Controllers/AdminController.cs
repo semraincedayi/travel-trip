@@ -57,6 +57,14 @@ namespace TravelTrip.Controllers
             var yorumlar = context.Yorumlars.ToList();
             return View(yorumlar);  
         }
+        public ActionResult DeleteComment(int id)
+        {
+            var yorum = context.Yorumlars.Find(id);
+            context.Yorumlars.Remove(yorum);
+            context.SaveChanges();
+            return RedirectToAction("CommentsList");
+
+        }
         [HttpGet]
         public ActionResult UpdateComment(int id)
         {
