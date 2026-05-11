@@ -57,6 +57,21 @@ namespace TravelTrip.Controllers
             var yorumlar = context.Yorumlars.ToList();
             return View(yorumlar);  
         }
-
+        [HttpGet]
+        public ActionResult UpdateComment(int id)
+        {
+            var yorum = context.Yorumlars.Find(id);
+            return View("UpdateComment", yorum);
+        }
+        [HttpPost]
+        public ActionResult UpdateComment(Yorumlar y)
+        {
+            var yorum = context.Yorumlars.Find(y.ID);
+            yorum.KullaniciAdi = y.KullaniciAdi;
+            yorum.Mail = y.Mail;
+            yorum.Yorum = y.Yorum;
+            context.SaveChanges();
+            return RedirectToAction("CommentsList");
+        }
     }
 }
