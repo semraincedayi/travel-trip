@@ -7,6 +7,7 @@ using TravelTrip.Models.Class;
 
 namespace TravelTrip.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         Context context = new Context();
