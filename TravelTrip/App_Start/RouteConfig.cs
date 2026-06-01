@@ -12,6 +12,11 @@ namespace TravelTrip
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+             routes.MapRoute(
+                name: "LoginRoute",
+                url: "Login",
+                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "Default",
