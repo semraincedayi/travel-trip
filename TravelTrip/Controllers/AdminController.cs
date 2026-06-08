@@ -22,8 +22,20 @@ namespace TravelTrip.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult NewBlog(Blog p)
+        public ActionResult NewBlog(Blog p, HttpPostedFileBase FileUpload)
         {
+            if (FileUpload != null && FileUpload.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(FileUpload.FileName);
+                var filepath = Server.MapPath("~/Images/");
+                if (!Directory.Exists(filepath))
+                {
+                    Directory.CreateDirectory(filepath);
+                }
+                var path = Path.Combine(filepath, fileName);
+                FileUpload.SaveAs(path);
+                p.BlogImage = "/Images/" + fileName;
+            }
             context.Blogs.Add(p);
             context.SaveChanges();
             return RedirectToAction("Index");
@@ -43,12 +55,23 @@ namespace TravelTrip.Controllers
             return View("UpdateBlog", blogs);
         }
         [HttpPost]
-        public ActionResult UpdateBlog(Blog b)
+        public ActionResult UpdateBlog(Blog b, HttpPostedFileBase FileUpload)
         {
             var blogs = context.Blogs.Find(b.Id);
             blogs.Baslik = b.Baslik;
             blogs.Tarih = b.Tarih;
-            blogs.BlogImage = b.BlogImage;
+            if (FileUpload != null && FileUpload.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(FileUpload.FileName);
+                var filepath = Server.MapPath("~/Images/");
+                if (!Directory.Exists(filepath))
+                {
+                    Directory.CreateDirectory(filepath);
+                }
+                var path = Path.Combine(filepath, fileName);
+                FileUpload.SaveAs(path);
+                blogs.BlogImage = "/Images/" + fileName;
+            }
             blogs.Aciklama = b.Aciklama;
             context.SaveChanges();
             return RedirectToAction("Index");
