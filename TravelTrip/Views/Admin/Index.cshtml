@@ -23,7 +23,7 @@
         <td>@x.Tarih.ToString("dd.MM.yyyy")</td>
         <td><a href="/Admin/DeleteBlog/@x.Id" class="btn btn-danger">Sil</a></td>
         <td><a href="/Admin/UpdateBlog/@x.Id" class="btn btn-warning">Güncelle</a></td>
-        <td><a href="#" class="btn btn-default">Detaylar</a></td>
+        <td><a href="/Admin/DetailBlog?id=@x.Id" class="btn btn-default">Detaylar</a></td>
          </tr>
          }
     </table>

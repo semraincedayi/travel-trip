@@ -81,7 +81,7 @@ namespace TravelTrip.Controllers
         public ActionResult CommentsList()
         {
             var yorumlar = context.Yorumlars.ToList();
-            return View(yorumlar);  
+            return View(yorumlar);
         }
         public ActionResult DeleteComment(int id)
         {
@@ -124,7 +124,7 @@ namespace TravelTrip.Controllers
                 if (!Directory.Exists(filepath))
                 {
                     Directory.CreateDirectory(filepath);
-    }
+                }
                 var path = Path.Combine(filepath, fileName);
                 FileUpload.SaveAs(path);
                 about.PhotoUrl = "/Images/" + fileName;
@@ -133,4 +133,12 @@ namespace TravelTrip.Controllers
             context.SaveChanges();
             return RedirectToAction("AboutUs");
         }
+        public ActionResult DetailBlog(int id)
+        {
+            var blog = context.Blogs.Find(id);
+            return View(blog);
+        }
+    
+    }
+
 }
