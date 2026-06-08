@@ -17,6 +17,17 @@ namespace TravelTrip.Controllers
             return View(degerler);
             
         }
-        
+        [HttpGet]
+        public PartialViewResult PostQuestion()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult PostQuestion(Iletisim i)
+        {
+            _context.Iletisims.Add(i);
+            _context.SaveChanges();
+            return RedirectToAction("ContactInf");
+        }
     }
 }
