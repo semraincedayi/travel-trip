@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,6 +37,7 @@ namespace TravelTrip.Controllers
                 FileUpload.SaveAs(path);
                 p.BlogImage = "/Images/" + fileName;
             }
+
             context.Blogs.Add(p);
             context.SaveChanges();
             return RedirectToAction("Index");
