@@ -13,7 +13,7 @@ namespace TravelTrip.Controllers
         Context context = new Context();
         public ActionResult Index()
         {
-            var degerler = context.Blogs.OrderByDescending(x =>x.Id).Take(4).ToList();
+            var degerler = context.Blogs.OrderBy(x =>Guid.NewGuid()).Take(4).ToList();
             return View(degerler);
         }
         public ActionResult About()
@@ -28,7 +28,7 @@ namespace TravelTrip.Controllers
         }
         public PartialViewResult Partial2()
         {
-            var degerler = context.Blogs.OrderByDescending(x => x.Tarih).Take(10).ToList();
+            var degerler = context.Blogs.OrderByDescending(x => Guid.NewGuid()).Take(10).ToList();
             return PartialView(degerler);
         }
         public PartialViewResult Partial3()
