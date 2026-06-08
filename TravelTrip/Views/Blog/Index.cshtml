@@ -43,13 +43,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="single">
         <div class="container">
             <div class="col-md-8 single-main">
-                @foreach (var x in Model.Deger1)
+                @foreach (var x in Model.DegerBlog)
                 {
                     <div class="single-grid">
 
                         <img src="@x.BlogImage" alt="" style="margin-bottom: 20px; object-fit: cover; aspect-ratio: 16 / 9; object-position:center" />
                         <a href="/Blog/BlogDetails/@x.Id">@x.Baslik</a>
-                        <p>@x.Aciklama                        </p>
+                        <p>@x.KisaAciklama <a href="/Blog/BlogDetails/@x.Id"> ...Devamını oku</a> </p>
                     </div>
                     <br /><br />
                 }
@@ -79,9 +79,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
             </div>
+
+
             <div class="clearfix"></div>
+            <div style="display: flex; justify-content: center; align-items: center; width: 65%; clear: both; padding: 20px 0;">
+                <nav aria-label="...">
+                    <ul class="pagination justify-content-center ">
+                        @if (ViewBag.CurrentPage == 1)
+                        {
+                            <li class="page-item disabled">
+                                <span class="page-link">Previous</span>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="/Blog/Index?page=@(ViewBag.CurrentPage-1)">Previous</a>
+                            </li>
+                        }
+                        @for (int i = 1; i <= @ViewBag.pagenumber; i++)
+                        {
+                            if (i == ViewBag.CurrentPage)
+                            {
+                                <li class="page-item active">
+                                    <span class="page-link">
+                                        @i
+                                        <span class="sr-only">(current)</span>
+                                    </span>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" href="/Blog/Index?page=@i">@i</a></li>
+                            }
+
+                        }
+                        <li class="page-item">
+                            <a class="page-link" href="/Blog/Index?page=@(ViewBag.CurrentPage+1)">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
+    
 </body>
 <!---->
 
