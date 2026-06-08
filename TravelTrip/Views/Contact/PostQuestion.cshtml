@@ -1,0 +1,22 @@
+﻿<h3>Bize Mesaj Gönder</h3>
+
+@using (Html.BeginForm("PostQuestion", "Contact", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="formGroupExampleInput">Adınız ve Soyadınız</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" name="AdSoyad" placeholder="Adınız Soyadınız">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Mail adresiniz</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" name="Mail" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Konu</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" name="Konu" placeholder="Konu">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Mesajınız</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="Mesaj" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Gönder</button>
+}
