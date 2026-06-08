@@ -107,5 +107,30 @@ namespace TravelTrip.Controllers
             context.SaveChanges();
             return RedirectToAction("CommentsList");
         }
+        [HttpGet]
+        public ActionResult AboutUs()
+        {
+            var aboutus = context.Hakkimizdas.FirstOrDefault();
+            return View(aboutus);
+        }
+        [HttpPost]
+        public ActionResult AboutUs(Hakkimizda h, HttpPostedFileBase FileUpload)
+        {
+            var about = context.Hakkimizdas.Find(h.Id);
+            if (FileUpload != null && FileUpload.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(FileUpload.FileName);
+                var filepath = Server.MapPath("~/Images/");
+                if (!Directory.Exists(filepath))
+                {
+                    Directory.CreateDirectory(filepath);
     }
+                var path = Path.Combine(filepath, fileName);
+                FileUpload.SaveAs(path);
+                about.PhotoUrl = "/Images/" + fileName;
+            }
+            about.Aciklama = h.Aciklama;
+            context.SaveChanges();
+            return RedirectToAction("AboutUs");
+        }
 }
