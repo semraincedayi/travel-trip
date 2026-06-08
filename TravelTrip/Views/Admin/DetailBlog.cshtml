@@ -1,0 +1,24 @@
+﻿@model TravelTrip.Models.Class.Blog
+@{
+    ViewBag.Title = "DetailBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Detayları</h2>
+<br />
+    @Html.LabelFor(m => m.Id, new { @class = "font-weight-bold mt-3" })
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(m => m.Baslik, new { @class = "font-weight-bold mt-3" })
+    @Html.TextBoxFor(m => m.Baslik, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(m => m.Tarih, new { @class = "font-weight-bold mt-3" })
+    @Html.TextBoxFor(m => m.Tarih, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    <img src="@Model.BlogImage" class="img-thumbnail" style="max-width: 50%; height: auto; margin-top: 10px; margin-bottom: 20px; object-fit: cover; aspect-ratio: 16 / 9; object-position: center" />
+    <br />
+    @Html.LabelFor(m => m.Aciklama, new { @class = "font-weight-bold mt-3" })
+    @Html.TextAreaFor(m => m.Aciklama,10,1, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+
+
