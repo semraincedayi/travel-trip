@@ -60,20 +60,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="col-md-4 side-content">
                 <div class="recent">
                     <h3>Son Gönderiler</h3>
-                    @foreach(var y in Model.Deger3)
+                    @foreach (var y in Model.Deger3)
                     {
-                    <ul>
-                        <li><a href="/Blog/BlogDetails/@y.Id">@y.Baslik</a></li>
-                    </ul>
+                        <ul>
+                            <li><a href="/Blog/BlogDetails/@y.Id">@y.Baslik</a></li>
+                        </ul>
                     }
                 </div>
+
+
                 <div class="comments">
                     <h3>Son Yorumlar</h3>
-                    @foreach(var z in Model.Deger2)
+                    @foreach (var z in Model.Deger2)
                     {
-                    <ul>
-                        <li><a href="/Blog/BlogDetails/@z.BlogId" style="font-weight:bold;">@z.KullaniciAdi: </a><a href="/Blog/BlogDetails/@z.BlogId">@z.Yorum</a></li>
-                    </ul>
+                        <ul>
+                            <li><a href="/Blog/BlogDetails/@z.BlogId" style="font-weight:bold;">@z.KullaniciAdi: </a><a href="/Blog/BlogDetails/@z.BlogId">@z.Yorum</a></li>
+                        </ul>
                     }
                 </div>
 
@@ -120,8 +122,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </ul>
                 </nav>
             </div>
+            </div>
         </div>
-    </div>
     
 </body>
 <!---->

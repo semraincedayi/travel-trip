@@ -39,7 +39,9 @@ namespace TravelTrip.Controllers
             //var blogBul = _context.Blogs.Where(x => x.Id == id).ToList();
             by.Deger1 = _context.Blogs.Where(x => x.Id == id).ToList();
             by.Deger2 = _context.Yorumlars.Where(x => x.BlogId == id).ToList();
-            by.Deger3 = _context.Blogs.Take(5).ToList();
+            by.Deger3 = _context.Blogs.OrderByDescending(x => x.Id).Take(5).ToList();
+            by.Deger4 = _context.Yorumlars.OrderByDescending(x => x.ID).Take(5).ToList();
+
             return View(by);
 
         }

@@ -78,7 +78,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </ul>
                     }
                 </div>
-                
+                <div class="comments">
+                    <h3>Son Yorumlar</h3>
+                    @foreach (var z in Model.Deger4)
+                    {
+                        <ul>
+                            <li><a href="/Blog/BlogDetails/@z.BlogId" style="font-weight:bold;">@z.KullaniciAdi: </a><a href="/Blog/BlogDetails/@z.BlogId">@z.Yorum</a></li>
+                        </ul>
+                    }
+                </div>
 
             </div>
             <div class="clearfix"></div>
