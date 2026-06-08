@@ -6,7 +6,7 @@
 
 <h2>Yeni blog ekleme</h2>
 <br />
-<form class="form-group" method="post">
+<form class="form-group" method="post" enctype="multipart/form-data">
     @Html.LabelFor(x => x.Baslik)
     @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" , autocomplete = "off" })
     <br />
@@ -14,7 +14,7 @@
     @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", type = "date" })
     <br />
     @Html.LabelFor(x => x.BlogImage)
-    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" , autocomplete = "off" })
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" , autocomplete = "off" })<input type="file" name="FileUpload" class="form-control" accept="image/*" value="" />
     <br />
     @Html.LabelFor(x => x.Aciklama)
     @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", @rows = "5", id = "icerikAlani" })
